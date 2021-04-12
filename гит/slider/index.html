@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset=utf-8>
+  <title>События</title>
+  
+ <style>
+  * {margin: 0;
+  padding: 0;
+  }
+  body {
+    width: 400px;
+    margin: 100px auto;
+  }
+  div.view { 
+    height: 200px;
+    overflow: hidden;
+  }
+  div.view ul {
+    list-style: none;
+    width: 10000px;
+    overflow: scroll;  /*закрепляем высоту ul чтобы  контент ниже не сместил его */
+  }
+  div.view ul li{
+    float: left;
+    
+  }
+  .buttons{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+  button {
+    padding: 1em;
+    margin-right: 15px;
+  }
+</style>
+</head>
+
+<body>
+ 
+  <div class="view">
+    <ul>
+      <li> <img src="img/1.jpg" alt="1"/> </li>
+      <li> <img src="img/2.jpg" alt="2"/> </li>
+      <li> <img src="img/3.jpg" alt="3"/> </li>
+      <li> <img src="img/4.jpg" alt="4"/> </li>
+    </ul>
+  </div>
+  <div class="buttons">
+    <!--  data-dir свой атрибут и имя -->
+     <button id="prev" data-dir='prev'>Назад</button>  
+    <button id="next" data-dir="next">Вперед</button>
+   
+  </div>
+   <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="slider1.js"></script>
+</body>
+
+</html>

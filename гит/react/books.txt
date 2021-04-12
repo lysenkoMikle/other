@@ -1,0 +1,34 @@
+
+const books = [
+  {id: 1, category: "XML", title: "XML. Никаких тайн и секретов!", author: "Джим Кох, Кен Дэвидсон", price: 2000},
+  {id: 2, category: "AJAX", title: "Ajax в действии", author: "Дейв Крейн, Эрик Паскарелло, Даррен Джеймс", price: 3000},
+  {id: 3, category: "PHP", author: "Дэвид Скляр", title: "Изучаем PHP 7. Руководство по созданию интерактивных веб-сайтов", price: 0}]
+
+let items = books.map(item => <div>
+   <div className="category">{item["category"]}</div>
+      <div className="title">{item["title"]}</div>
+   <div className="author">{item["author"]} </div>
+      <div>
+        <img src="https://place-hold.it/100x200" />
+      </div>
+      <div>{formatPrice(item["price"])}</div>
+</div>);
+
+function formatPrice(price) {
+return price > 0 ? <strong>{price}</strong> : <mark>Нет в наличии</mark>
+}
+
+let book = <div>
+   <div className="category">{books[2]["category"]}</div>
+      <div className="title">{books[2]["title"]}</div>
+   <div className="author">{books[2]["author"]} </div>
+      <div>
+        <img src="https://place-hold.it/100x200" />
+      </div>
+      <div>{formatPrice(books[2]["price"])}</div>
+</div>
+
+ReactDOM.render(
+items,
+document.getElementById("root")
+);

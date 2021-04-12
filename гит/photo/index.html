@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ФОТОАЛЬБОМ</title>
+  <style type="text/css">
+  #photo {
+    width: 400px;
+    height: auto;
+    margin-top: 20px;
+  }
+  #photo-container img {
+				width: 60px;
+				height: 50px;
+				margin: 6px;
+        cursor: pointer;
+			}
+			
+     </style>
+    
+  </head>
+
+<body>
+ <h1>фотоальбом</h1>
+ <div id="photo-container" align="center">
+
+ </div>
+<div  align='center'>
+  <input type="button" value="предыдущий" onclick=prevPhoto()>
+  <input type="button" value="следующий" onclick=nextPhoto()>
+  <input type="button" value="slideShow" onclick=slider()>
+  </div>
+
+ <div align='center'>
+   <img id= "photo"  src="/images/1.jpg" >
+  
+ </div>
+ 
+ <script>
+   let images = [
+     '1.jpg',
+     '2.jpg',
+     '3.jpg',
+     '4.jpg',
+     '5.jpg',
+     '6.jpg',
+     '7.jpg',
+     '8.jpg',
+     '9.jpg',
+     '10.jpg',
+
+   ]
+   
+  let index = 0;
+    function nextPhoto() {
+      let photo = document.getElementById('photo');
+      index++
+      if (index >= images.length) {
+        index = 0;
+      }
+      let src = "images/" + images[index];
+      photo.src = src;
+    }
+
+    function prevPhoto () {
+      let photo = document.getElementById('photo');
+      index--;
+      if (index <0) {
+          index = images.length - 1;
+      } 
+      let src = "images/" + images[index];
+      photo.src = src;
+      
+    }
+   
+
+    function switchPhoto () {
+      
+      let photo = document.getElementById('photo');
+       photo.src = this.src;  
+    }
+    let img = null;
+   window.onload = function () {
+    let photo = document.getElementById('photo');
+    photo.onclick = nextPhoto;
+    let container = document.getElementById('photo-container');
+    for (let i = 0; i< images.length; i++ ) {
+      let img = document.createElement("IMG");
+      img.src = "images/" + images[i];
+      img.onclick = switchPhoto;
+      container.appendChild(img);
+      
+    }
+   }
+   
+   function slider() {
+     let timer;
+     clearInterval(timer);  
+     timer = setInterval("nextPhoto()", 1000);
+   };
+ 
+ </script>
+ 
+</body>
+
+</html>
